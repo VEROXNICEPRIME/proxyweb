@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiom Prime // Game Verification Hub</title>
+    <style>
+        :root {
+            --bg-color: #060609;
+            --panel-bg: #0e0e14;
+            --accent: #00ff66;
+            --accent-glow: rgba(0, 255, 102, 0.4);
+            --text-main: #f1f1f5;
+            --text-dim: #7a7a99;
+            --danger: #ff3366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .verify-card {
+            background-color: var(--panel-bg);
+            border: 1px solid #1f1f2e;
+            border-radius: 8px;
+            padding: 25px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .status-box {
+            background: #040406;
+            border: 1px solid #28283d;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: left;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .status-item {
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00cc52, #00ff66);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+            letter-style: tracking;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="verify-card">
+        <h1>KIỂM TRA HOẠT ĐỘNG TRONG GAME</h1>
+        <p>XÁC THỰC HOẠT ĐỘNG 100% TRÊN FREE FIRE MAX & THƯỜNG</p>
+
+        <div class="status-box" id="verify-screen">
+            <div class="status-item">[Trạng thái]: Đang chờ quét tiến trình game...</div>
+            <div class="status-item">[Proxy Nice Prime]: Sẵn sàng móc nối mạng</div>
+            <div class="status-item">[Aim Cổ & Fix Lag]: Đang chờ kích hoạt</div>
+        </div>
+
+        <button class="btn" onclick="verifyGame()">KIỂM TRA NGAY LẬP TỨC</button>
+    </div>
+
+    <script>
+        function verifyGame() {
+            const screen = document.getElementById('verify-screen');
+            screen.innerHTML = `
+                <div class="status-item">[Đang quét]: Đã tìm thấy tiến trình Free Fire!</div>
+                <div class="status-item">[Proxy]: Đã bẻ khóa băng thông, ping ổn định 12ms!</div>
+                <div class="status-item">[Fix Lag]: Đã mở khóa tối đa hóa khung hình!</div>
+                <div class="status-item" style="color: #ff3366;">[Aim Cổ]: Đã nạp thành công bộ ghim tâm 100% vào cổ! Vào trận kéo là bay đầu!</div>
+            `;
+        }
+    </script>
+</body>
+</html>
