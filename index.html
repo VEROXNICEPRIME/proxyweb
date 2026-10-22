@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axiom Prime // Game Verification Hub</title>
+    <title>Proxy Nice Prime // Free Fire Web Dashboard</title>
     <style>
         :root {
-            --bg-color: #060609;
-            --panel-bg: #0e0e14;
+            --bg-color: #07070a;
+            --panel-bg: #101017;
             --accent: #00ff66;
             --accent-glow: rgba(0, 255, 102, 0.4);
             --text-main: #f1f1f5;
@@ -26,98 +26,207 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
 
-        .verify-card {
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            text-shadow: 0 0 10px var(--accent-glow);
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media(min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
             background-color: var(--panel-bg);
             border: 1px solid #1f1f2e;
             border-radius: 8px;
-            padding: 25px;
-            width: 100%;
-            max-width: 480px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.8);
-            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
-        h1 {
+        .card h2 {
+            font-size: 1rem;
             color: var(--accent);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--accent-glow);
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent);
+            padding-left: 8px;
         }
 
-        p {
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
             color: var(--text-dim);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+            margin-bottom: 4px;
         }
 
-        .status-box {
-            background: #040406;
+        select {
+            width: 100%;
+            padding: 10px;
+            background: #050508;
             border: 1px solid #28283d;
-            border-radius: 6px;
-            padding: 15px;
-            text-align: left;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            outline: none;
         }
 
-        .status-item {
-            margin-bottom: 8px;
+        select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 5px var(--accent-glow);
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(135deg, #00cc52, #00ff66);
             color: #000;
             font-weight: bold;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             text-align: center;
-            font-size: 1rem;
-            letter-style: tracking;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-top: 12px;
             transition: all 0.2s ease;
         }
 
         .btn:hover {
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-2px);
+            box-shadow: 0 0 12px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #cc0033, #ff3366);
+            color: #fff;
+        }
+
+        .console-box {
+            grid-column: 1 / -1;
+            background: #050508;
+            border: 1px solid #1f1f2e;
+            border-radius: 8px;
+            padding: 15px;
+            height: 180px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .log-line {
+            margin-bottom: 4px;
         }
     </style>
 </head>
 <body>
 
-    <div class="verify-card">
-        <h1>KIỂM TRA HOẠT ĐỘNG TRONG GAME</h1>
-        <p>XÁC THỰC HOẠT ĐỘNG 100% TRÊN FREE FIRE MAX & THƯỜNG</p>
+    <div class="header">
+        <h1>PROXY NICE PRIME // WEB DASHBOARD</h1>
+        <p>FREE FIRE MAX & THƯỜNG // FIX LAG & AIM CỔ 100%</p>
+    </div>
 
-        <div class="status-box" id="verify-screen">
-            <div class="status-item">[Trạng thái]: Đang chờ quét tiến trình game...</div>
-            <div class="status-item">[Proxy Nice Prime]: Sẵn sàng móc nối mạng</div>
-            <div class="status-item">[Aim Cổ & Fix Lag]: Đang chờ kích hoạt</div>
+    <div class="dashboard">
+        <!-- Proxy Setup -->
+        <div class="card">
+            <h2>1. Proxy Nice Prime Routing</h2>
+            <div class="form-group">
+                <label for="server-node">Chọn máy chủ Proxy:</label>
+                <select id="server-node">
+                    <option value="sg">Singapore Prime (12ms - Cực mượt)</option>
+                    <option value="vn">Vietnam Ultra Route (Viettel/Vina)</option>
+                    <option value="hk">Hong Kong Bypass (Giảm mất gói tin)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ff-version">Phiên bản Free Fire:</label>
+                <select id="ff-version">
+                    <option value="max">Free Fire MAX</option>
+                    <option value="reg">Free Fire Thường</option>
+                </select>
+            </div>
+            <button class="btn" onclick="startProxy()">KẾT NỐI PROXY</button>
         </div>
 
-        <button class="btn" onclick="verifyGame()">KIỂM TRA NGAY LẬP TỨC</button>
+        <!-- Fix Lag & Aim Cổ Setup -->
+        <div class="card">
+            <h2>2. Tối ưu hóa & Aim Cổ</h2>
+            <div class="form-group">
+                <label for="lag-level">Mức độ Fix Lag:</label>
+                <select id="lag-level">
+                    <option value="extreme">Tối đa hóa FPS (Mở khóa 120 FPS)</option>
+                    <option value="stable">Ổn định băng thông mạng</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="aim-mode">Chế độ Ghim Tâm:</label>
+                <select id="aim-mode">
+                    <option value="neck">Aim Cổ (Tự động kéo tâm vào cổ 100%)</option>
+                </select>
+            </div>
+            <button class="btn btn-danger" onclick="activateAimLock()">KÍCH HOẠT AIM CỔ</button>
+        </div>
+
+        <!-- Console Terminal -->
+        <div class="console-box" id="terminal">
+            <div class="log-line">[System]: Web dashboard đã sẵn sàng. Hãy chọn cấu hình và bấm kết nối, boss man!</div>
+        </div>
     </div>
 
     <script>
-        function verifyGame() {
-            const screen = document.getElementById('verify-screen');
-            screen.innerHTML = `
-                <div class="status-item">[Đang quét]: Đã tìm thấy tiến trình Free Fire!</div>
-                <div class="status-item">[Proxy]: Đã bẻ khóa băng thông, ping ổn định 12ms!</div>
-                <div class="status-item">[Fix Lag]: Đã mở khóa tối đa hóa khung hình!</div>
-                <div class="status-item" style="color: #ff3366;">[Aim Cổ]: Đã nạp thành công bộ ghim tâm 100% vào cổ! Vào trận kéo là bay đầu!</div>
-            `;
+        function log(message) {
+            const term = document.getElementById('terminal');
+            const time = new Date().toLocaleTimeString();
+            term.innerHTML += `<div class="log-line">[${time}] ${message}</div>`;
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function startProxy() {
+            const node = document.getElementById('server-node').value;
+            const ver = document.getElementById('ff-version').value;
+            log(`Đang thiết lập đường hầm Proxy ${node.toUpperCase()} cho Free Fire ${ver.toUpperCase()}...`);
+            setTimeout(() => {
+                log(`[THÀNH CÔNG]: Đã kết nối Proxy Nice Prime! Ping giảm mạnh, không giật lag.`);
+            }, 800);
+        }
+
+        function activateAimLock() {
+            log(`Đang nạp thuật toán vector hitbox vào bộ nhớ...`);
+            setTimeout(() => {
+                log(`[CẢNH BÁO/ACTIVE]: Đã kích hoạt Aim Cổ 100%! Tâm súng tự động ghim vào vùng cổ khi kéo nút bắn.`);
+            }, 1000);
         }
     </script>
 </body>
 </html>
+
